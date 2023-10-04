@@ -1,7 +1,7 @@
 from app.config import settings
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, status, HTTPException
-from .. import schemas, models
+from .. import schemas, models, oauth2
 from app.database import SessionLocal, get_db
 from app.utils import hash
 
@@ -18,6 +18,7 @@ def get(db: Session = Depends(get_db)):
 @router.post("/", response_model=schemas.signupRes, status_code=status.HTTP_201_CREATED)
 def create_user(user: schemas.signupReq, db: Session = Depends(get_db)):
   #adding value to password
+
   pwd_value = user.password + settings.extra_value_to_password
   user.password =  pwd_value
 
