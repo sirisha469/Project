@@ -8,3 +8,8 @@ class signupReq(BaseModel):
 
 class signupRes(BaseModel):
   email: EmailStr
+
+
+class UserLogin(BaseModel):
+  email: EmailStr
+  password: str
