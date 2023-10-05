@@ -7,6 +7,7 @@ class signupReq(BaseModel):
   email: EmailStr
   password: str
 
+
 class signupRes(BaseModel):
   email: EmailStr
 
@@ -21,4 +22,8 @@ class Token(BaseModel):
   token_type: str
 
 class TokenData(BaseModel):
-  email: Optional[str] = None
+  id: Optional[int] = None
+
+
+class EmailSchema(BaseModel):
+  email: EmailStr
